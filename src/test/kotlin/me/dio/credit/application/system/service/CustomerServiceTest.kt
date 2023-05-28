@@ -81,29 +81,27 @@ class CustomerServiceTest {
   }
 
 
-  companion object {
-    fun buildCustomer(
-      firstName: String = "Marcelo",
-      lastName: String = "Neri",
-      cpf: String = "64953775090",
-      email: String = "mcnerirj@gmail.com",
-      password: String = "123456",
-      zipCode: String = "123456",
-      street: String = "Av Rio Branco",
-      income: BigDecimal = BigDecimal.valueOf(2500.0),
-      id: Long = 1L
-    ) = Customer(
-      firstName = firstName,
-      lastName = lastName,
-      cpf = cpf,
-      email = email,
-      password = password,
-      address = Address(
-        zipCode = zipCode,
-        street = street,
-      ),
-      income = income,
-      id = id
-    )
-  }
+  private fun buildCustomer(
+    firstName: String = "Cami",
+    lastName: String = "Cavalcante",
+    cpf: String = "28475934625",
+    email: String = "camila@gmail.com",
+    password: String = "12345",
+    zipCode: String = "12345",
+    street: String = "Rua da Cami",
+    income: BigDecimal = BigDecimal.valueOf(1000.0),
+    id: Long = 1L
+  ) = Customer(
+    firstName = firstName,
+    lastName = lastName,
+    cpf = cpf,
+    email = email,
+    password = password,
+    address = Address(
+      zipCode = zipCode,
+      street = street,
+    ),
+    income = income,
+    id = id
+  )
 }
