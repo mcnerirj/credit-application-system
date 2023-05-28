@@ -19,6 +19,6 @@ class CustomerService( private val customerRepository : CustomerRepository): ICu
         val customer : Customer = this.findById(id)
         this.customerRepository.delete(customer)
     }
-
+    override fun findByIncome(income: Long): Customer = this.customerRepository.findByIncome(income)
 
 }

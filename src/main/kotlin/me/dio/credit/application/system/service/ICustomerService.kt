@@ -9,4 +9,6 @@ interface ICustomerService {
     fun findById(id: Long):Customer
 
     fun delete(id:Long)
+
+    fun findByIncome(income: Long):Customer
 }
