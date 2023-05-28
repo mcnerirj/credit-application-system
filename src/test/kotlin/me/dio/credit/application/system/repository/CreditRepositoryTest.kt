@@ -38,12 +38,16 @@ class CreditRepositoryTest {
     //given
     val creditCode1 = UUID.fromString("aa547c0f-9a6a-451f-8c89-afddce916a29")
     val creditCode2 = UUID.fromString("49f740be-46a7-449b-84e7-ff5b7986d7ef")
+    //credit1.creditCode = creditCode1
+    //credit2.creditCode = creditCode2
     //when
     val fakeCredit1: Credit = creditRepository.findByCreditCode(creditCode1)!!
     val fakeCredit2: Credit = creditRepository.findByCreditCode(creditCode2)!!
     //then
     Assertions.assertThat(fakeCredit1).isNotNull
     Assertions.assertThat(fakeCredit2).isNotNull
+    Assertions.assertThat(fakeCredit1).isSameAs(credit1)
+    Assertions.assertThat(fakeCredit2).isSameAs(credit2)
   }
 
   @Test
@@ -70,14 +74,14 @@ class CreditRepositoryTest {
     customer = customer
   )
   private fun buildCustomer(
-    firstName: String = "Marcelo",
-    lastName: String = "Neri",
-    cpf: String = "64953775090",
-    email: String = "mcneri@gmail.com",
-    password: String = "123456",
-    zipCode: String = "123456",
-    street: String = "Av Rio Branco",
-    income: BigDecimal = BigDecimal.valueOf(2500.0),
+    firstName: String = "Cami",
+    lastName: String = "Cavalcante",
+    cpf: String = "28475934625",
+    email: String = "camila@gmail.com",
+    password: String = "12345",
+    zipCode: String = "12345",
+    street: String = "Rua da Cami",
+    income: BigDecimal = BigDecimal.valueOf(1000.0),
   ) = Customer(
     firstName = firstName,
     lastName = lastName,
