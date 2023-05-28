@@ -48,5 +48,11 @@ class CustomerResource(private val customerService : CustomerService) {
         val customerUpdate : Customer =  this.customerService.save(customerToUpdate)
         return ResponseEntity.status(HttpStatus.OK).body(CustomerView(customerUpdate))
     }
+
+    @GetMapping("/income/{income}")
+    fun findByIncome(@PathVariable income: Long) : ResponseEntity<CustomerView> {
+        val customer : Customer = this.customerService.findByIncome(income)
+        return ResponseEntity.status(HttpStatus.OK).body(CustomerView(customer))
+    }
 }
 
