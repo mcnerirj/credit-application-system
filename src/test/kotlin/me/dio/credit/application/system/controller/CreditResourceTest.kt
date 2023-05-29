@@ -48,7 +48,7 @@ class CreditResourceTest {
     }
 */
     @Test
-    fun saveCredit_shouldReturnCreatedStatus() {
+    fun `should create a credit and return 201 status`() {
         val creditDto: CreditDto = buildCreditDto()
         val credit : Credit = buildCredit()
         credit.customer = null
@@ -60,13 +60,14 @@ class CreditResourceTest {
         assertEquals("Credit ${credit.creditCode} - Customer null saved!", response.body)
     }
 
+    /*
     @Test
-    fun findByAllCustomerId_shouldReturnListOfCreditViewList() {
+    fun `should find CreditViewList by id and return 200 status`() {
         val customerId = 1L
-        val credit1 = buildCredit()
-        val credit2 = buildCredit()
+        val credit1 = buildCreditViewList()
+        val credit2 = buildCreditViewList()
         val creditList = listOf(credit1, credit2)
-        val creditViewList = creditList.map { CreditViewList(it) }
+        val creditViewList = creditList.map { creditList() }
 
         `when`(creditService.findAllByCustomer(customerId)).thenReturn(creditList)
 
@@ -75,8 +76,27 @@ class CreditResourceTest {
         assertEquals(creditViewList, response.body)
     }
 
+     */
     @Test
-    fun findByCreditCode_shouldReturnCreditView() {
+    fun `should find CreditViewList by id and return 200 status`() {
+        // Arrange
+        val customerId = 1L
+        val credit1 = buildCredit()
+        val credit2 = buildCredit()
+        val creditList = listOf(credit1, credit2)
+
+        `when`(creditService.findAllByCustomer(customerId)).thenReturn(creditList)
+
+        // Act
+        val response = creditResource.findByAllCustomerId(customerId)
+
+        // Assert
+        assertEquals(HttpStatus.OK, response.statusCode)
+        assertEquals(creditList, response.body)
+    }
+
+    @Test
+    fun `should find Credit by id and return 200 status`() {
         val customerId = 1L
         val creditCode = UUID.randomUUID()
         val credit = buildCredit(creditCode = creditCode)
