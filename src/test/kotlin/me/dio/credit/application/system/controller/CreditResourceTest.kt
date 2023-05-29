@@ -19,6 +19,15 @@ import java.math.BigDecimal
 import java.time.LocalDate
 import java.util.*
 import me.dio.credit.application.system.enummeration.Status
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.ActiveProfiles
+import org.springframework.test.context.ContextConfiguration
+
+@SpringBootTest
+@ActiveProfiles("test")
+@AutoConfigureMockMvc
+@ContextConfiguration
 class CreditResourceTest {
 
     @Mock
